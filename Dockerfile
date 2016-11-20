@@ -11,6 +11,9 @@ RUN chown -R metrika /etc/clickhouse-server/
 USER metrika
 EXPOSE 9000 8123 9009
 
+
+COPY config.xml /etc/clickhouse-server/config.xml
+
 ENV CLICKHOUSE_CONFIG /etc/clickhouse-server/config.xml
 
 CMD ["sh", "-c", "/usr/bin/clickhouse-server --config=${CLICKHOUSE_CONFIG}"]
